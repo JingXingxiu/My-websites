@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人简介</title>
+  <style>
+    /* 全局样式 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #007ACC;
+    }
+    header h1 {
+      margin-top: 15px;
+      font-size: 2.2em;
+      color: #222;
+    }
+    header p.subtitle {
+      margin-top: 5px;
+      font-size: 1.1em;
+      color: #666;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    section h2 {
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #e0e0e0;
+      font-size: 1.5em;
+      color: #007ACC;
+    }
+    .content p {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+    .list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .list li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #007ACC;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gallery img {
+      width: calc(33.333% - 10px);
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    footer {
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.9em;
+      color: #999;
+    }
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .gallery img {
+        width: calc(50% - 10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 个人信息 -->
+    <header>
+      <img src="/联手模板/37.JPG" alt="个人头像">
+      <!-- 姓名 -->
+      <h1>37/Thirty-seven</h1>
+      <!-- 简短描述/座右铭 -->
+      <p class="subtitle"><i><del>来学数学吧！</del></i></p>
+    </header>
+
+    <!-- 关于我 -->
+    <section id="about">
+      <h2>关于我</h2>
+      <div class="content">
+        <p><b>欢迎咨询！</b><br>简单的问题我会尽力回答，难的请<del>付费使用</del>，这样能保证答案的正确性(<del>不是</del>)<br>毕竟查资料确实挺麻烦的...</p>
+      </div>
+    </section>
+
+    <!-- 兴趣爱好 -->
+    <section id="interests">
+      <h2>兴趣爱好</h2>
+      <ul class="list">
+        <li><b>哲学</b>，心理咨询，社会学</li>
+        <li><b>计算机</b>，数学，生物，</li>
+        <li><b>羽毛球</b>，篮球，健身</li>
+        <li><b>写作</b>，唱歌，小提琴</li>
+      </ul>
+    </section>
+
+    <!-- 专业技能（可选） -->
+    <section id="skills">
+      <h2>专业技能</h2>
+      <ul class="list">
+        <li>Java全栈</li>
+        <li>略懂医学和计算机的职业规划</li>
+        <li><del>写文章的好手？</del></li>
+      </ul>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact">
+      <h2>联系方式</h2>
+      <div class="content">
+        <p>邮箱：glxming44yyds@gmail.com/755086730@qq.com</p>
+        <p>电话：193****4370</p>
+        <p>地址：广州/佛山</p>
+      </div>
+    </section>
+
+    <!-- 其他链接 -->
+    <section id="links">
+      <h2>其他链接</h2>
+      <div class="content">
+        <p><a href="https://www.zhihu.com//people//--61-81-68-6" target="_blank"><b>知乎主页</b></a></p>
+        <p><a href="https://github.com//JingXingxiu" target="_blank">GitHub</a></p>
+        <p><!-- 其他链接 --></p>
+      </div>
+    </section>
+
+    <!-- 照片分享 -->
+    <section id="gallery">
+      <h2>照片分享</h2>
+      <div class="gallery">
+        <img src="/联手模板/做哲学.jpg" alt="照片1">
+        <img src="/联手模板/哲学史.png" alt="照片2">
+        <img src="/联手模板/张.jpg" alt="照片3">
+      </div>
+    </section>
+
+    <!-- 成就展示 -->
+    <section id="achievements">
+      <h2>成就展示</h2>
+      <ul class="list">
+        <li><!-- 成就1，例如：获得某某奖项 --></li>
+        <li><!-- 成就2 --></li>
+        <li><!-- 成就3 --></li>
+      </ul>
+    </section>
+
+    <!-- 感悟分享 -->
+    <section id="reflections">
+      <h2>感悟分享</h2>
+      <div class="content">
+        <p><!-- 分享你的人生感悟、学习心得或者哲理思考 --></p>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 <!-- 你的姓名或品牌 -->
+    </footer>
+  </div>
+</body>
+</html>

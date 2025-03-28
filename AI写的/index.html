@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>二手书查价</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 扫描区 -->
+        <div class="scanner-box">
+            <button onclick="mockScan()">📷 模拟扫描</button>
+            <input type="text" id="isbnInput" placeholder="输入ISBN">
+        </div>
+
+        <!-- 价格展示 -->
+        <div class="price-results" id="results"></div>
+
+        <!-- 导航 -->
+        <div class="nav">
+            <button onclick="saveBook()">保存到书库</button>
+            <a href="library.html">查看书库 →</a>
+        </div>
+    </div>
+
+    <script>
+        // 模拟扫描功能
+        function mockScan() {
+            const sampleISBNs = ['9787115543420', '9787115351538', '9787302455106'];
+            document.getElementById('isbnInput').value = sampleISBNs[Math.floor(Math.random()*3)];
+        }
+
+        // 生成模拟价格数据
+        function generatePrices(isbn) {
+            const platforms = ['当当', '多抓鱼', '孔夫子'];
+            return platforms.map(platform => ({
+                platform,
+                price: Math.floor(Math.random()*30 + 20),
+                timestamp: new Date().toLocaleString()
+            }));
+        }
+
+        // 保存到本地存储
+        function saveBook() {
+            const isbn = document.getElementById('isbnInput').value;
+            if (!isbn) return;
+
+            const bookData = {
+                isbn,
+                prices: generatePrices(isbn),
+                addedAt: new Date().toLocaleString()
+            };
+
+            // 更新本地存储
+            const library = JSON.parse(localStorage.getItem('bookLibrary') || '[]');
+            library.push(bookData);
+            localStorage.setItem('bookLibrary', JSON.stringify(library));
+
+            // 实时显示结果
+            displayPrices(bookData.prices);
+        }
+
+        // 显示价格
+        function displayPrices(prices) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = prices.map(p => `
+                <div class="price-item">
+                    <span class="platform">${p.platform}</span>
+                    <span class="price">¥${p.price}</span>
+                    <span class="time">${p.timestamp}</span>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
