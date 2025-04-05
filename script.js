@@ -25,3 +25,24 @@ document.querySelectorAll('.coming-soon').forEach(link => {
       });
     });
   });
+  // 点击文字展开图片
+document.querySelectorAll('.show-image').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const imgSrc = this.getAttribute('data-img');
+      document.getElementById('modal-image').src = imgSrc;
+      document.querySelector('.image-modal').style.display = 'block';
+    });
+  });
+  
+  // 关闭弹窗
+  document.querySelector('.close-modal').addEventListener('click', function() {
+    document.querySelector('.image-modal').style.display = 'none';
+  });
+  
+  // 点击蒙层关闭
+  window.addEventListener('click', function(e) {
+    if (e.target === document.querySelector('.image-modal')) {
+      document.querySelector('.image-modal').style.display = 'none';
+    }
+  });
