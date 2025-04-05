@@ -1,205 +1,248 @@
-<!--下一步优化点：  -->
-<!-- 1网页两侧比较空荡，可以适当添加优化，但不能太花哨导致破坏简洁的美感。
- 我还想要科幻极客感（偏暗的色调），但这种纯白+蓝色（我的图片）+简洁的圣洁属性也挺不错的。或许可以考虑再搞一个网站，这个网站保留纯洁干净的感觉？ -->
-<!-- 2内容偏少，可以适当增加更多板块？比如留言系统，但可以以后再搞，因为现在还没学数据库等等，保存留言可能比较困难？-->
-<!-- 3布局比较单调，但这个可以以后再继续深化-->
-<!-- 4缺少交互，和2类似。留言板，交流板块是可以考虑设计的。但这里设计逻辑，还没学后端，JavaScript不熟练的我不适合搞这个
- （留言板和交互区可以分两块做，留言板放index，交互区可以再搞一个网页）
-添加： 
-✅ 个人目标 & 未来规划
-✅ 技能展示（进度条、技能图表）
-✅ 近期在学什么？（日历、任务清单）
-✅ 推荐书单 📚
-✅ 留言板（计划）
-✅ 个人语录 & 亮点展示
- -->
  <!DOCTYPE html>
  <html lang="zh">
  <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-   <title>个人简介</title>
+   <title>37 - 个人简介</title>
+   <script>
+     alert("欢迎来到37的网页！(持续优化中！)");
+ 
+   </script>
    <style>
-     /* 全局样式 */
+     /* ===== 基础重置 ===== */
      * {
        box-sizing: border-box;
        margin: 0;
        padding: 0;
      }
+ 
+     /* ===== 蓝白主色调 ===== */
+     :root {
+       --primary-blue: #007ACC;
+       --light-blue: #e3f2fd;
+       --dark-blue: #005c99;
+     }
+ 
+     /* ===== 背景与容器 ===== */
      body {
-       font-family: 'Arial', sans-serif;
-       background-color: #f9f9f9;
+       font-family: 'Segoe UI', system-ui;
+       background: #f8f9ff; /* 极浅蓝背景 */
        color: #333;
        line-height: 1.6;
-       padding: 20px;
+       padding: 30px 0;
      }
+ 
      .container {
        max-width: 900px;
        margin: 0 auto;
-       background: #fff;
-       padding: 20px 30px;
-       border-radius: 8px;
-       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+       background: white;
+       padding: 40px;
+       border-radius: 12px;
+       box-shadow: 
+         0 4px 20px rgba(0, 122, 204, 0.08), /* 蓝色调阴影 */
+         0 0 0 1px rgba(0, 122, 204, 0.1);   /* 细边框效果 */
      }
+ 
+     /* ===== 头部优化 ===== */
      header {
        text-align: center;
-       margin-bottom: 30px;
+       margin-bottom: 40px;
      }
      header img {
-       width: 150px;
-       height: 150px;
-       border-radius: 100%;
+       width: 160px;
+       height: 160px;
+       border-radius: 50%;
        object-fit: cover;
-       border: 3px solid #007ACC;
+       border: 3px solid var(--primary-blue);
+       box-shadow: 0 4px 12px rgba(0, 122, 204, 0.15);
      }
      header h1 {
-       margin-top: 15px;
-       font-size: 2.2em;
-       color: #222;
+       margin: 20px 0 8px;
+       font-size: 2.4em;
+       color: var(--dark-blue);
+       letter-spacing: 1px;
      }
-     header p.subtitle {
-       margin-top: 5px;
-       font-size: 1.1em;
+     header .subtitle {
        color: #666;
+       font-size: 1.1em;
+       position: relative;
+       display: inline-block;
      }
+     header .subtitle::after { /* 下划线装饰 */
+       content: "";
+       display: block;
+       width: 80%;
+       height: 2px;
+       background: var(--light-blue);
+       margin: 8px auto;
+     }
+ 
+     /* ===== 内容区块 ===== */
      section {
-       margin-bottom: 30px;
+       margin-bottom: 40px;
+       padding: 20px;
+       background: #f8faff; /* 区块浅蓝背景 */
+       border-radius: 8px;
+       transition: transform 0.2s;
      }
-     section h2 {
-       margin-bottom: 10px;
-       padding-bottom: 5px;
-       border-bottom: 2px solid #e0e0e0;
-       font-size: 1.5em;
-       color: #007ACC;
+     section:hover {
+       transform: translateY(-2px);
      }
-     .content p {
-       margin-bottom: 10px;
-       text-align: justify;
+ 
+     h2 {
+       margin-bottom: 15px;
+       color: var(--dark-blue);
+       padding-bottom: 10px;
+       border-bottom: 2px solid var(--light-blue);
+       font-size: 1.4em;
+       position: relative;
      }
-     .list {
-       list-style: none;
-       padding-left: 0;
+     h2::after { /* 标题装饰线 */
+       content: "";
+       position: absolute;
+       bottom: -2px;
+       left: 0;
+       width: 60px;
+       height: 2px;
+       background: var(--primary-blue);
      }
+ 
+     /* ===== 列表样式 ===== */
      .list li {
-       margin-bottom: 8px;
-       padding-left: 20px;
+       padding: 8px 0;
+       margin-left: 20px;
        position: relative;
      }
      .list li::before {
-       content: "•";
+       content: "▶";
+       color: var(--primary-blue);
        position: absolute;
-       left: 0;
-       color: #007ACC;
+       left: -20px;
+       font-size: 0.8em;
      }
+ 
+     /* ===== 图片画廊 ===== */
      .gallery {
-       display: flex;
-       flex-wrap: wrap;
-       gap: 10px;
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+       gap: 15px;
+       margin-top: 15px;
      }
      .gallery img {
-       width: calc(33.333% - 10px);
-       border-radius: 4px;
+       width: 100%;
+       height: 180px;
+       border-radius: 6px;
        object-fit: cover;
-     }
-
-      .achievement img {
-         width: calc(33.333% - 10px);
-         border-radius: 4px;
-         object-fit: cover;
-         margin:10px;
-         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); 
+       border: 2px solid var(--light-blue);
+       transition: all 0.3s;
      }
      .gallery img:hover {
-       transform: scale(1.05);
-       transition: 0.3s ease-in-out;
+       transform: scale(1.03);
+       border-color: var(--primary-blue);
      }
-     footer {
+ 
+     /* ===== 成就区 ===== */
+     .achievement img {
+       width: 100%;
+       max-width: 33.3%;
+       border: 3px solid white;
+       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+       border-radius: 8px;
+     }
+ 
+     /* ===== 感悟区 ===== */
+     #reflections p {
+       font-size: 1.4em;
        text-align: center;
-       padding: 10px 0;
-       border-top: 1px solid #e0e0e0;
-       font-size: 0.9em;
-       color: #999;
+       padding: 25px;
+       background: var(--light-blue);
+       border-radius: 8px;
+       color: var(--dark-blue);
+       margin: 20px 0;
+       border-left: 4px solid var(--primary-blue);
      }
-     /* 响应式 */
-     @media (max-width: 600px) {
-       .gallery img {
-         width: calc(50% - 10px);
+ 
+     /* ===== 响应式优化 ===== */
+     @media (max-width: 768px) {
+       .container {
+         padding: 25px;
+         margin: 0 15px;
+       }
+       header img {
+         width: 120px;
+         height: 120px;
+       }
+       .gallery {
+         grid-template-columns: repeat(2, 1fr);
        }
      }
    </style>
  </head>
  <body>
    <div class="container">
-     <!-- 个人信息 -->
      <header>
-       <img src="37.JPG" alt="个人头像">
-       <h1>37/Thirty-seven</h1>
-       <p class="subtitle"><i><del>来学数学吧！</del></i></p>
+         <img src="37.JPG" alt="头像">
+         <h1>37/Thirty-seven</h1>
+         <p class="subtitle"><i><del>来学数学吧！</del></i></p>
      </header>
  
-     <!-- 关于我 -->
-     <section id="about">
-       <h2>关于我</h2>
-       <div class="content">
-         <p><b>2,3,5,7,11,13,17,19,23,29,31,37!</b><br><b>欢迎咨询任何问题！本人为不专业的博物学家</b><br>简单的问题我会尽力回答，难的请酌情<del>付费使用💴</del>，这样能保证答案的正确性(<del>不是</del>)</p>
-       </div>
-     </section>
+   <section id="about">
+     <h2>关于我</h2>
+     <div class="content">
+       <p><b>2,3,5,7,11,13,17,19,23,29,31,37!</b><br><b>欢迎咨询任何问题！本人为不专业的博物学家</b><br>简单的问题我会尽力回答，难的请酌情<del>付费使用💴</del>，这样能保证答案的正确性(<del>不是</del>)</p>
+     </div>
+   </section>
  
-     <!-- 兴趣爱好 -->
-     <section id="interests">
-       <h2>兴趣爱好</h2>
-       <ul class="list">
-         <li><b>哲学</b>，心理咨询，社会学</li>
-         <li><b>计算机</b>，数学，生物</li>
-         <li><b>羽毛球</b>，篮球，健身</li>
-         <li><b>写作</b>，唱歌，小提琴</li>
-       </ul>
-     </section>
+   <section id="interests">
+     <h2>兴趣爱好</h2>
+     <ul class="list">
+       <li><b>哲学</b>，心理咨询，社会学</li>
+       <li><b>计算机</b>，数学，生物</li>
+       <li><b>羽毛球</b>，篮球，健身</li>
+       <li><b>写作</b>，唱歌，小提琴</li>
+     </ul>
+   </section>
  
-     <!-- 照片分享 -->
-     <section id="gallery">
-       <h2>照片分享</h2>
-       <div class="gallery">
-         <img src="37背景.jpg" alt="37" title="不是老婆是本人！">
-         <img src="做哲学.jpg" alt="暑假第二个看完的书" title="非常推荐">
-         <img src="哲学史.png" alt="暑假第一个看完的书" title="配合左边的会好很多">
-         <img src="张.jpg" alt="她头像" title="遗憾">
-         <img src="张2.jpg" alt="她朋友圈" title="太遗憾了">
-         <img src="客户端服务器.jpg" alt="套接字完成" title="当时就想弄一个自己的即时通讯软件">
-       </div>
-     </section>
+   <section id="gallery">
+     <h2>照片分享</h2>
+     <div class="gallery">
+       <img src="37背景.jpg" alt="37" title="不是老婆是本人！">
+       <img src="做哲学.jpg" alt="暑假第二个看完的书" title="非常推荐">
+       <img src="哲学史.png" alt="暑假第一个看完的书" title="配合左边的会好很多">
+       <img src="张.jpg" alt="她头像" title="遗憾">
+       <img src="张2.jpg" alt="她朋友圈" title="太遗憾了">
+       <img src="客户端服务器.jpg" alt="套接字完成" title="当时就想弄一个自己的即时通讯软件">
+     </div>
+   </section>
  
-     <!-- 成就展示 -->
-     <section id="achievements">
-       <h2>成就展示</h2>
-       <div class="achievement">
-         <img src="300题.jpg" alt="300题" title="蜕变了！">
-       </div>
-     </section>
+   <section id="achievements">
+     <h2>成就展示</h2>
+     <div class="achievement">
+       <img src="300题.jpg" alt="300题" title="蜕变了！">
+     </div>
+   </section>
  
-     <!-- 感悟分享 -->
-     <section id="reflections">
-       <h2>感悟分享</h2>
-       <div class="content">
-         <p><span style="font-size: 1.8em; color:red; background-color: yellow;">绝大多数时候，努力是通向成功唯一的路径！</span></p>
-       </div>
-     </section>
+   <section id="reflections">
+     <h2>感悟分享</h2>
+     <div class="content">
+       <p><span style="font-size: 1.8em; color:red; background-color: yellow;">绝大多数时候，努力是通向成功唯一的路径！</span></p>
+     </div>
+   </section>
  
-     <section id="links">
-      <h2>其他链接</h2>
-      <div class="content">
-        <ul>
-          <li><p><a href="https://www.zhihu.com/people/--61-81-68-6" target="_blank"><b>知乎主页</b></a></p></li>
-          <li><p><a href="https://github.com/JingXingxiu" target="_blank"><b>Github</b></a></p></li>
-          <li><p><a href="https://leetcode.cn/u/avvesome-gaussusq/" target="_blank"><b>Leetcode</b></a></p></li>
-        </ul>
-      </div>
-    </section>
-    
+   <section id="links">
+    <h2>其他链接</h2>
+    <div class="content">
+      <ul>
+        <li><p><a href="https://www.zhihu.com/people/--61-81-68-6" target="_blank"><b>知乎</b></a></p></li>
+        <li><p><a href="https://github.com/JingXingxiu" target="_blank"><b>Github</b></a></p></li>
+        <li><p><a href="https://leetcode.cn/u/avvesome-gaussusq/" target="_blank"><b>Leetcode</b></a></p></li>
+      </ul>
+    </div>
+  </section>
+  
      <footer>
        © 2025 <b>明</b>
      </footer>
    </div>
  </body>
  </html>
- 
