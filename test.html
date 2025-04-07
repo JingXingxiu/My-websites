@@ -1,0 +1,161 @@
+<!--下一步优化点：  -->
+<!-- 1网页两侧比较空荡，可以适当添加优化，但不能太花哨导致破坏简洁的美感。 -->
+<!-- 2内容偏少，可以适当增加更多板块？比如留言系统，但可以以后再搞，因为现在还没学数据库等等，保存留言可能比较困难？-->
+<!-- 3布局比较单调，但这个可以以后再继续深化-->
+<!-- 4缺少交互，和2类似。留言板，交流板块是可以考虑设计的。但这里设计逻辑，还没学后端，JavaScript不熟练的我不适合搞这个
+ （留言板和交互区可以分两块做，留言板放index，交互区可以再搞一个网页）
+添加： 
+✅ 个人目标 & 未来规划
+✅ 技能展示（进度条、技能图表）
+✅ 近期在学什么？（日历、任务清单）
+✅ 推荐书单 📚
+✅ 留言板（计划）
+✅ 个人语录 & 亮点展示
+ -->
+ <!DOCTYPE html>
+ <html lang="zh">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <title>37 - 个人简介</title>
+   <link rel="stylesheet" href="styles.css">
+   <script src="script.js" defer></script>
+   <script>
+     alert("欢迎来到37的网页！(持续优化中！)");
+   </script>
+ </head>
+ <body>
+   <!-- 导航栏 -->
+   <nav class="main-nav">
+     <div class="nav-container">
+       <div class="nav-brand">37</div>
+       <ul class="nav-links">
+         <li><a href="#home">主页</a></li>
+         <li><a href="#about">关于</a></li>
+         <li><a href="#books">书单</a></li>
+         <li><a href="#gallery">相册</a></li>
+         <li><a href="#links">链接</a></li>
+         <li><a href="#" class="coming-soon">留言板</a></li>
+       </ul>
+     </div>
+   </nav>
+ 
+   <!-- 两侧装饰 -->
+   <div class="decoration left"></div>
+   <div class="decoration right"></div>
+ 
+   <!-- 内容容器 -->
+   <div class="container">
+     <header>
+       <img src="37.JPG" alt="头像">
+       <h1>37/Thirty-seven</h1>
+       <p class="subtitle"><i><del>来学数学吧！</del></i></p>
+     </header>
+ 
+     <!-- 关于我模块 -->
+     <section id="about">
+       <h2>关于我</h2>
+       <div class="content">
+         <p><b>2,3,5,7,11,13,17,19,23,29,31,37!</b><br>
+           <b>欢迎咨询任何问题！本人为不专业的博物学家</b><br>
+           简单的问题我会尽力回答，难的请酌情<del>付费使用💴</del>，这样能保证答案的正确性(<del>不是</del>)</p>
+       </div>
+     </section>
+ 
+     <!-- 兴趣爱好模块 -->
+     <section id="interests">
+       <h2>兴趣爱好</h2>
+       <ul class="list">
+         <li><b>哲学</b>，心理咨询，社会学</li>
+         <li><b>计算机</b>，数学，生物</li>
+         <li><b>羽毛球</b>，篮球，健身</li>
+         <li><b>写作</b>，唱歌，小提琴</li>
+       </ul>
+     </section>
+ 
+     <!-- 新增书单推荐模块 -->
+     <section id="books">
+       <h2>推荐书单</h2>
+       <div class="book-list">
+         <div class="book-card">
+           <h3>做哲学:88个思想实验哲学导论</h3>
+           <a href="https://book.douban.com/subject/30136393/" target="_blank" class="douban-link">豆瓣链接</a>
+           <p>现代前沿哲学思想，不要做哲学史学家，要做哲学家！</p>
+         </div>
+         <div class="book-card">
+           <h3>西方哲学史</h3>
+           <a href="https://book.douban.com/subject/34447865/" target="_blank" class="douban-link">豆瓣链接</a>
+           <p>哲学的历史，提供语境和词汇理解。</p>
+         </div>
+       </div>
+     </section>
+ 
+     <!-- 照片分享模块 -->
+     <section id="gallery">
+       <h2>照片分享</h2>
+       <div class="gallery">
+         <img src="37背景.jpg" alt="37" title="不是老婆是本人！">
+         <img src="做哲学.jpg" alt="暑假第二个看完的书" title="非常推荐">
+         <img src="哲学史.png" alt="暑假第一个看完的书" title="配合左边的会好很多">
+         <img src="张.jpg" alt="她头像" title="遗憾">
+         <img src="张2.jpg" alt="她朋友圈" title="太遗憾了">
+         <img src="客户端服务器.jpg" alt="套接字完成" title="当时就想弄一个自己的即时通讯软件">
+       </div>
+     </section>
+ 
+     <section class="milestone">
+      <h2>里程碑</h2>
+      <div class="milestone-card">
+        <!-- 主展示图片 -->
+        <div class="main-achievement">
+          <img src="300题.jpg" alt="刷完300题的里程碑" class="milestone-img">
+          <p class="milestone-title">「算法入门」300题全通关</p>
+        </div>
+    
+        <!-- 文字描述 + 可展开的次要成就 -->
+        <div class="achievement-details">
+          <div class="description">
+            <p>其他重要成就：</p>
+            <ul>
+              <li>第一份完整做完的题单 <a href="#" class="show-image" data-img="第一份题单.png">(点击查看)</a></li>
+              <li>周赛首次AK <a href="#" class="show-image" data-img="周赛ak.png">(点击查看)</a></li>
+            </ul>
+          </div>
+        </div>
+    </section>
+    
+    <!-- 图片弹窗容器 -->
+    <div class="image-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="成就详情">
+      </div>
+    </div>
+ 
+     <!-- 感悟分享模块 -->
+     <section id="reflections">
+       <h2>感悟分享</h2>
+       <div class="content">
+         <p><span style="font-size: 1.8em; color:red; background-color: yellow;">绝大多数时候，努力是通向成功唯一的路径！</span></p>
+       </div>
+     </section>
+ 
+     <!-- 其他链接模块 -->
+     <section id="links">
+       <h2>其他链接</h2>
+       <div class="content">
+         <ul>
+           <li><a href="https://www.zhihu.com/people/--61-81-68-6" target="_blank"><b>知乎</b></a></li>
+           <li><a href="https://github.com/JingXingxiu" target="_blank"><b>Github</b></a></li>
+           <li><a href="https://leetcode.cn/u/avvesome-gaussusq/" target="_blank"><b>Leetcode</b></a></li>
+         </ul>
+       </div>
+     </section>
+ 
+     <!-- 页脚 -->
+     <footer>
+       © 2025 <b>明</b>
+     </footer>
+   </div>
+ </body>
+ </html>
